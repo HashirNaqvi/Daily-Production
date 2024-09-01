@@ -12,8 +12,14 @@ if 'df' not in st.session_state:
 # Streamlit app
 st.title("Daily Production and Rejection Tracker")
 
+# Current date button
+if st.button("Use Current Date"):
+    current_date = datetime.now().strftime('%d/%m/%Y')
+    date = st.text_input("Date (dd/mm/yyyy):", value=current_date)
+else:
+    date = st.text_input("Date (dd/mm/yyyy):")
+
 # User inputs
-date = st.text_input("Date (dd/mm/yyyy):")
 production_qty = st.number_input("Production Qty:", min_value=0, step=1)
 rejection_qty = st.number_input("Rejection Qty:", min_value=0, step=1)
 
